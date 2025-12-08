@@ -1,4 +1,6 @@
 # pre-install
+> [!IMPORTANT]
+> This is a work in progress prototype and not ready for real-world usage, although we do welcome any feedback at this early stage of development.
 
 ## Structure
 - The [`maximo-operator-catalog/operators`](maximo-operator-catalog/operators/) folder contains the base resource definitions to install the operators
