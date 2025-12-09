@@ -2,9 +2,11 @@
 > [!IMPORTANT]
 > This is a work in progress prototype and not ready for real-world usage, although we do welcome any feedback at this early stage of development.
 
+
 ## Structure
 - The [`maximo-operator-catalog/operators`](maximo-operator-catalog/operators/) folder contains the base resource definitions to install the operators
 - The [`maximo-operator-catalog/v9-251127-amd64`](maximo-operator-catalog/v9-251127-amd64/) folders contain overlays that ensure the correct version of the operator is used to align with the tested combination of versions that are verified by IBM.
+
 
 ## Usage
 Do not directly use the content of [`maximo-operator-catalog/operators`](maximo-operator-catalog/operators/), instead choose a specific catalog version and use the appropriate overlay from there, for example:
@@ -21,3 +23,7 @@ kustomize build instances/dev1
 ```
 
 See [`instances/dev1/resources.yaml`](instances/dev1/resources.yaml) to view the result of this kustomize command.
+
+
+## Maintenance
+The content in [`maximo-operator-catalog/operators`](maximo-operator-catalog/operators/) will be largely static, and with the release of each new operator catalog we will publish a new overlay setting the appropriate values for each operator on all supported release channels.
