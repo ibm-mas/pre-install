@@ -8,7 +8,7 @@ resources:
 patches:
   - target:
       kind: OperatorGroup
-      name: ibm-mas-operator-group
+      name: ibm-mas-manage-operator-group
       namespace: ""
     patch: |-
       - op: replace

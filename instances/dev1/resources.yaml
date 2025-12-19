@@ -148,7 +148,7 @@ metadata:
   namespace: mas-dev1-manage
 spec:
   targetNamespaces:
-  - mas-x-manage
+  - mas-dev1-manage
 ---
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
