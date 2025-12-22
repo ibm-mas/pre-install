@@ -2,12 +2,42 @@
 apiVersion: v1
 kind: Namespace
 metadata:
+  name: aiservice-dev1
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mas-dev1-arcgis
+---
+apiVersion: v1
+kind: Namespace
+metadata:
   name: mas-dev1-core
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
+  name: mas-dev1-facilities
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mas-dev1-iot
+---
+apiVersion: v1
+kind: Namespace
+metadata:
   name: mas-dev1-manage
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mas-dev1-monitor
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mas-dev1-optimizer
 ---
 apiVersion: v1
 kind: Namespace
@@ -23,6 +53,78 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: mas-dev1-visualinspection
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: aiservice-admin
+  namespace: aiservice-dev1
+rules:
+- apiGroups:
+  - aiservice.ibm.com/v1
+  resources:
+  - aiserviceapps
+  - aiservicetenants
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: aiservice-readonly
+  namespace: aiservice-dev1
+rules:
+- apiGroups:
+  - aiservice.ibm.com/v1
+  resources:
+  - aiserviceapps
+  - aiservicetenants
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: arcgis-admin
+  namespace: mas-dev1-arcgis
+rules:
+- apiGroups:
+  - apps.mas.ibm.com/v1
+  resources:
+  - arcgisapps
+  - arcgisworkspaces
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: arcgis-readonly
+  namespace: mas-dev1-arcgis
+rules:
+- apiGroups:
+  - apps.mas.ibm.com/v1
+  resources:
+  - arcgisapps
+  - arcgisworkspaces
+  verbs:
+  - get
+  - list
+  - watch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -145,6 +247,222 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
+  name: facilities-admin
+  namespace: mas-dev1-facilities
+rules:
+- apiGroups:
+  - apps.mas.ibm.com/v1
+  resources:
+  - facilitiesapps
+  - facilitiesworkspaces
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: facilities-readonly
+  namespace: mas-dev1-facilities
+rules:
+- apiGroups:
+  - apps.mas.ibm.com/v1
+  resources:
+  - facilitiesapps
+  - facilitiesworkspaces
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: iot-admin
+  namespace: mas-dev1-iot
+rules:
+- apiGroups:
+  - iot.ibm.com/v1
+  resources:
+  - iots
+  - iotworkspaces
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: iot-readonly
+  namespace: mas-dev1-iot
+rules:
+- apiGroups:
+  - iot.ibm.com/v1
+  resources:
+  - iots
+  - iotworkspaces
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: manage-admin
+  namespace: mas-dev1-manage
+rules:
+- apiGroups:
+  - apps.mas.ibm.com/v1
+  resources:
+  - manageapps
+  - manageworkspaces
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: manage-readonly
+  namespace: mas-dev1-manage
+rules:
+- apiGroups:
+  - apps.mas.ibm.com/v1
+  resources:
+  - manageapps
+  - manageworkspaces
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: monitor-admin
+  namespace: mas-dev1-monitor
+rules:
+- apiGroups:
+  - apps.mas.ibm.com/v1
+  resources:
+  - monitorapps
+  - monitorworkspaces
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: monitor-readonly
+  namespace: mas-dev1-monitor
+rules:
+- apiGroups:
+  - apps.mas.ibm.com/v1
+  resources:
+  - monitorapps
+  - monitorworkspaces
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: optimizer-admin
+  namespace: mas-dev1-optimizer
+rules:
+- apiGroups:
+  - apps.mas.ibm.com/v1
+  resources:
+  - optimizerapps
+  - optimizerworkspaces
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: optimizer-readonly
+  namespace: mas-dev1-optimizer
+rules:
+- apiGroups:
+  - apps.mas.ibm.com/v1
+  resources:
+  - optimizerapps
+  - optimizerworkspaces
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: predict-admin
+  namespace: mas-dev1-predict
+rules:
+- apiGroups:
+  - apps.mas.ibm.com/v1
+  resources:
+  - predictapps
+  - predictworkspaces
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: predict-readonly
+  namespace: mas-dev1-predict
+rules:
+- apiGroups:
+  - apps.mas.ibm.com/v1
+  resources:
+  - predictapps
+  - predictworkspaces
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
   name: sls-admin
   namespace: mas-dev1-sls
 rules:
@@ -178,6 +496,60 @@ rules:
   - list
   - watch
 ---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: visualinspection-admin
+  namespace: mas-dev1-visualinspection
+rules:
+- apiGroups:
+  - apps.mas.ibm.com/v1
+  resources:
+  - visualinspectionapps
+  - visualinspectionworkspaces
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: visualinspection-readonly
+  namespace: mas-dev1-visualinspection
+rules:
+- apiGroups:
+  - apps.mas.ibm.com/v1
+  resources:
+  - visualinspectionapps
+  - visualinspectionworkspaces
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: ibm-aiservice-operator-group
+  namespace: aiservice-dev1
+spec:
+  targetNamespaces:
+  - aiservice-dev1
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: ibm-mas-arcgis-operator-group
+  namespace: mas-dev1-arcgis
+spec:
+  targetNamespaces:
+  - mas-dev1-arcgis
+---
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
@@ -190,11 +562,47 @@ spec:
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
+  name: ibm-mas-facilities-operator-group
+  namespace: mas-dev1-facilities
+spec:
+  targetNamespaces:
+  - mas-dev1-facilities
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: ibm-mas-iot-operator-group
+  namespace: mas-dev1-iot
+spec:
+  targetNamespaces:
+  - mas-dev1-iot
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
   name: ibm-mas-manage-operator-group
   namespace: mas-dev1-manage
 spec:
   targetNamespaces:
   - mas-dev1-manage
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: ibm-mas-monitor-operator-group
+  namespace: mas-dev1-monitor
+spec:
+  targetNamespaces:
+  - mas-dev1-monitor
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: ibm-mas-optimizer-operator-group
+  namespace: mas-dev1-optimizer
+spec:
+  targetNamespaces:
+  - mas-dev1-optimizer
 ---
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
@@ -226,6 +634,45 @@ spec:
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
+  name: ibm-aiservice-operator
+  namespace: aiservice-dev1
+spec:
+  channel: 9.1.x
+  installPlanApproval: Manual
+  name: ibm-aiservice
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+  startingCSV: ibm-aiservice.v9.1.7
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-truststore-mgr-operator
+  namespace: aiservice-dev1
+spec:
+  channel: 1.x
+  installPlanApproval: Manual
+  name: ibm-truststore-mgr
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+  startingCSV: ibm-truststore-mgr.v1.7.2
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-mas-arcgis-operator
+  namespace: mas-dev1-arcgis
+spec:
+  channel: 9.1.x
+  installPlanApproval: Manual
+  name: ibm-mas-arcgis
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+  startingCSV: ibm-mas-arcgis.v9.1.2
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
   name: ibm-mas-operator
   namespace: mas-dev1-core
 spec:
@@ -247,7 +694,72 @@ spec:
   name: ibm-truststore-mgr
   source: maximo-catalog-dev1
   sourceNamespace: openshift-marketplace
-  startingCSV: ibm-mas.v1.7.2
+  startingCSV: ibm-truststore-mgr.v1.7.2
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-mas-facilities-operator
+  namespace: mas-dev1-facilities
+spec:
+  channel: 9.1.x
+  installPlanApproval: Manual
+  name: ibm-mas-facilities
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+  startingCSV: ibm-mas-facilities.v9.1.4
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-truststore-mgr-operator
+  namespace: mas-dev1-facilities
+spec:
+  channel: 1.x
+  installPlanApproval: Manual
+  name: ibm-truststore-mgr
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+  startingCSV: ibm-truststore-mgr.v1.7.2
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: eclipse-amlen-operator
+  namespace: mas-dev1-iot
+spec:
+  channel: 1.x
+  installPlanApproval: Manual
+  name: eclipse-amlen-operator
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+  startingCSV: eclipse-amlen-operator.v1.1.3
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-mas-iot-operator
+  namespace: mas-dev1-iot
+spec:
+  channel: 9.1.x
+  installPlanApproval: Manual
+  name: ibm-mas-iot
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+  startingCSV: ibm-mas-iot.v9.1.4
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-truststore-mgr-operator
+  namespace: mas-dev1-iot
+spec:
+  channel: 1.x
+  installPlanApproval: Manual
+  name: ibm-truststore-mgr
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+  startingCSV: ibm-truststore-mgr.v1.7.2
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
@@ -260,7 +772,7 @@ spec:
   name: ibm-mas-manage
   source: maximo-catalog-dev1
   sourceNamespace: openshift-marketplace
-  startingCSV: ibm-mas.v9.1.6
+  startingCSV: ibm-mas-manage.v9.1.6
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
@@ -273,7 +785,59 @@ spec:
   name: ibm-truststore-mgr
   source: maximo-catalog-dev1
   sourceNamespace: openshift-marketplace
-  startingCSV: ibm-mas.v1.7.2
+  startingCSV: ibm-truststore-mgr.v1.7.2
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-mas-monitor-operator
+  namespace: mas-dev1-monitor
+spec:
+  channel: 9.1.x
+  installPlanApproval: Manual
+  name: ibm-mas-monitor
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+  startingCSV: ibm-mas-monitor.v9.1.4
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-truststore-mgr-operator
+  namespace: mas-dev1-monitor
+spec:
+  channel: 1.x
+  installPlanApproval: Manual
+  name: ibm-truststore-mgr
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+  startingCSV: ibm-truststore-mgr.v1.7.2
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-mas-optimizer-operator
+  namespace: mas-dev1-optimizer
+spec:
+  channel: 9.1.x
+  installPlanApproval: Manual
+  name: ibm-mas-optimizer
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+  startingCSV: ibm-mas-optimizer.v9.1.5
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-truststore-mgr-operator
+  namespace: mas-dev1-optimizer
+spec:
+  channel: 1.x
+  installPlanApproval: Manual
+  name: ibm-truststore-mgr
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+  startingCSV: ibm-truststore-mgr.v1.7.2
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
@@ -286,7 +850,7 @@ spec:
   name: ibm-mas-predict
   source: maximo-catalog-dev1
   sourceNamespace: openshift-marketplace
-  startingCSV: ibm-mas.v9.1.3
+  startingCSV: ibm-mas-predict.v9.1.3
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
@@ -299,7 +863,7 @@ spec:
   name: ibm-truststore-mgr
   source: maximo-catalog-dev1
   sourceNamespace: openshift-marketplace
-  startingCSV: ibm-mas.v1.7.2
+  startingCSV: ibm-truststore-mgr.v1.7.2
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
@@ -312,6 +876,7 @@ spec:
   name: ibm-sls
   source: maximo-catalog-dev1
   sourceNamespace: openshift-marketplace
+  startingCSV: ""
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
@@ -324,7 +889,7 @@ spec:
   name: ibm-truststore-mgr
   source: maximo-catalog-dev1
   sourceNamespace: openshift-marketplace
-  startingCSV: ibm-mas.v1.7.2
+  startingCSV: ibm-truststore-mgr.v1.7.2
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
@@ -337,4 +902,4 @@ spec:
   name: ibm-mas-visualinspection
   source: maximo-catalog-dev1
   sourceNamespace: openshift-marketplace
-  startingCSV: ibm-mas.v9.1.4
+  startingCSV: ibm-mas-visualinspection.v9.1.4

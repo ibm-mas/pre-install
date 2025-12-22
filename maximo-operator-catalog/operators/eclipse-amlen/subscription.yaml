@@ -1,0 +1,15 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: eclipse-amlen-operator
+  namespace: mas-x-iot
+spec:
+  name: eclipse-amlen-operator
+  channel: 1.x
+  startingCSV: ""
+
+  installPlanApproval: Automatic
+
+  source: ibm-operator-catalog
+  sourceNamespace: openshift-marketplace

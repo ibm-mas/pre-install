@@ -7,13 +7,6 @@ resources:
   - ../../../maximo-operator-catalog/v9-251127-amd64/ibm-truststore-mgr
 patches:
   - target:
-      kind: Namespace
-    patch: |-
-      - op: replace
-        path: /metadata/name
-        value: mas-dev1-core
-
-  - target:
       kind: OperatorGroup
       name: ibm-mas-operator-group
     patch: |-

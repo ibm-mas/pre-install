@@ -3,10 +3,16 @@ kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 resources:
   # Applications
+  - ./aiservice-dev1
+  - ./mas-dev1-arcgis
   - ./mas-dev1-core
+  - ./mas-dev1-facilities
+  - ./mas-dev1-iot
   - ./mas-dev1-manage
-  - ./mas-dev1-visualinspection
+  - ./mas-dev1-monitor
+  - ./mas-dev1-optimizer
   - ./mas-dev1-predict
+  - ./mas-dev1-visualinspection
   # Dependencies
   - ./mas-dev1-sls
 patches:

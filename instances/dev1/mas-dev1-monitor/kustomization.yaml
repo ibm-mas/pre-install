@@ -1,0 +1,17 @@
+---
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+namespace: mas-dev1-monitor
+resources:
+  - ../../../maximo-operator-catalog/v9-251127-amd64/ibm-mas-monitor/9.1
+  - ../../../maximo-operator-catalog/v9-251127-amd64/ibm-truststore-mgr
+patches:
+  - target:
+      kind: OperatorGroup
+      name: ibm-mas-monitor-operator-group
+      namespace: ""
+    patch: |-
+      - op: replace
+        path: /spec/targetNamespaces
+        value:
+          - mas-dev1-monitor

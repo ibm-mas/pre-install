@@ -1,0 +1,16 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: iot-readonly
+  namespace: ""
+rules:
+  - apiGroups:
+      - iot.ibm.com/v1
+    resources:
+      - iots
+      - iotworkspaces
+    verbs:
+      - get
+      - list
+      - watch

@@ -1,0 +1,16 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: monitor-readonly
+  namespace: ""
+rules:
+  - apiGroups:
+      - apps.mas.ibm.com/v1
+    resources:
+      - monitorapps
+      - monitorworkspaces
+    verbs:
+      - get
+      - list
+      - watch

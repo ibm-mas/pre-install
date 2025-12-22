@@ -9,4 +9,4 @@ patches:
     patch: |-
       - op: replace
         path: /spec/startingCSV
-        value: ibm-mas.v1.7.2
+        value: ibm-truststore-mgr.v1.7.2
