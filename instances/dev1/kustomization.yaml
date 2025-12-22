@@ -5,6 +5,7 @@ resources:
   - ./mas-dev1-core
   - ./mas-dev1-manage
   - ./mas-dev1-visualinspection
+  - ./mas-dev1-sls
 patches:
   # Example to use a specific catalog source for this MAS instance & set the install plan approval mode to "Manual"
   - target:

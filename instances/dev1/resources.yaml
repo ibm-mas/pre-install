@@ -12,6 +12,11 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
+  name: mas-dev1-sls
+---
+apiVersion: v1
+kind: Namespace
+metadata:
   name: mas-dev1-visualinspection
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -132,6 +137,42 @@ rules:
   - list
   - watch
 ---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: sls-admin
+  namespace: mas-dev1-sls
+rules:
+- apiGroups:
+  - sls.ibm.com
+  resources:
+  - licenseservices
+  - licenseclients
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: sls-readonly
+  namespace: mas-dev1-sls
+rules:
+- apiGroups:
+  - sls.ibm.com
+  resources:
+  - licenseservices
+  - licenseclients
+  verbs:
+  - get
+  - list
+  - watch
+---
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
@@ -149,6 +190,15 @@ metadata:
 spec:
   targetNamespaces:
   - mas-dev1-manage
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: ibm-sls-operator-group
+  namespace: mas-dev1-sls
+spec:
+  targetNamespaces:
+  - mas-dev1-sls
 ---
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
@@ -203,6 +253,31 @@ kind: Subscription
 metadata:
   name: ibm-truststore-mgr-operator
   namespace: mas-dev1-manage
+spec:
+  channel: 1.x
+  installPlanApproval: Manual
+  name: ibm-truststore-mgr
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+  startingCSV: ibm-mas.v1.7.2
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-sls
+  namespace: mas-dev1-sls
+spec:
+  channel: 3.x
+  installPlanApproval: Manual
+  name: ibm-sls
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-truststore-mgr-operator
+  namespace: mas-dev1-sls
 spec:
   channel: 1.x
   installPlanApproval: Manual
