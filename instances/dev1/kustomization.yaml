@@ -2,9 +2,12 @@
 kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 resources:
+  # Applications
   - ./mas-dev1-core
   - ./mas-dev1-manage
   - ./mas-dev1-visualinspection
+  - ./mas-dev1-predict
+  # Dependencies
   - ./mas-dev1-sls
 patches:
   # Example to use a specific catalog source for this MAS instance & set the install plan approval mode to "Manual"

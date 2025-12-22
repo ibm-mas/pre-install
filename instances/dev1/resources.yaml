@@ -12,6 +12,11 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
+  name: mas-dev1-predict
+---
+apiVersion: v1
+kind: Namespace
+metadata:
   name: mas-dev1-sls
 ---
 apiVersion: v1
@@ -194,6 +199,15 @@ spec:
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
+  name: ibm-mas-predict-operator-group
+  namespace: mas-dev1-predict
+spec:
+  targetNamespaces:
+  - mas-dev1-predict
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
   name: ibm-sls-operator-group
   namespace: mas-dev1-sls
 spec:
@@ -253,6 +267,32 @@ kind: Subscription
 metadata:
   name: ibm-truststore-mgr-operator
   namespace: mas-dev1-manage
+spec:
+  channel: 1.x
+  installPlanApproval: Manual
+  name: ibm-truststore-mgr
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+  startingCSV: ibm-mas.v1.7.2
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-mas-predict-operator
+  namespace: mas-dev1-predict
+spec:
+  channel: 9.1.x
+  installPlanApproval: Manual
+  name: ibm-mas-predict
+  source: maximo-catalog-dev1
+  sourceNamespace: openshift-marketplace
+  startingCSV: ibm-mas.v9.1.3
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-truststore-mgr-operator
+  namespace: mas-dev1-predict
 spec:
   channel: 1.x
   installPlanApproval: Manual
