@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../operators/db2u
+patches:
+  - target:
+      kind: Subscription
+      name: db2u-operator
+    patch: |-
+      - op: replace
+        path: /spec/channel
+        value: v7.3
+      - op: replace
+        path: /spec/startingCSV
+        value: db2u-operator.v7.3.1+20250821.161005.16793
