@@ -3,8 +3,8 @@ kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 namespace: mas-dev1-manage
 resources:
-  - ../../../maximo-operator-catalog/v9-251127-amd64/ibm-mas-manage/9.1
-  - ../../../maximo-operator-catalog/v9-251127-amd64/ibm-truststore-mgr
+  - ../../../../maximo-operator-catalog/v9-251127-amd64/ibm-mas-manage/9.1
+  - ../../../../maximo-operator-catalog/v9-251127-amd64/ibm-truststore-mgr
 patches:
   - target:
       kind: OperatorGroup

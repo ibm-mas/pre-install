@@ -16,13 +16,14 @@ Do not directly use the content of [`maximo-operator-catalog/operators`](maximo-
 
 
 ## Example
-Refer to [`instances/dev1`](instances/dev1/) for an example showing how to use the files in this repository to pre-install the operators for a MAS 9.1 install of Core, Manage, and Visual Inspection using the November 2025 catalog update.
+Refer to [`examples/instances/dev1`](examples/instances/dev1/) for an example showing how to use the files in this repository to pre-install the operators for a MAS 9.1 install of Core, Manage, and Visual Inspection using the November 2025 catalog update. For required dependencies refer to [`examples/dependencies`](examples/dependencies/).
+
 
 ```bash
-kustomize build instances/dev1
+kustomize build examples/instances/dev1
 ```
 
-See [`instances/dev1/resources.yaml`](instances/dev1/resources.yaml) to view the result of this kustomize command.
+See [`examples/instances/dev1/resources.yaml`](examples/instances/dev1/resources.yaml) to view the result of this kustomize command.
 
 
 ## Maintenance
