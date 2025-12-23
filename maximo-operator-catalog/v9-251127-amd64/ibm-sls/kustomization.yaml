@@ -5,7 +5,7 @@ resources:
 patches:
   - target:
       kind: Subscription
-      name: ibm-sls-operator
+      name: ibm-sls
     patch: |-
       - op: replace
         path: /spec/startingCSV

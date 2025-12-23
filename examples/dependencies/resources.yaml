@@ -50,6 +50,17 @@ spec:
   - ibm-sls
 ---
 apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  name: ibm-operator-catalog
+  namespace: openshift-marketplace
+spec:
+  displayName: IBM Maximo Operators (v9-251127-amd64)
+  image: icr.io/cpopen/ibm-maximo-operator-catalog:v9-251127-amd64
+  publisher: IBM
+  sourceType: grpc
+---
+apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
   name: ibm-sls
@@ -60,7 +71,7 @@ spec:
   name: ibm-sls
   source: ibm-operator-catalog
   sourceNamespace: openshift-marketplace
-  startingCSV: ""
+  startingCSV: ibm-sls.v3.12.2
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
