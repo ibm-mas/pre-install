@@ -1,0 +1,7 @@
+---
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+namespace: redhat-marketplace
+resources:
+  - ../../../redhat-certified-operator-catalog/v4.18/ibm-data-reporter
+  - ../../../redhat-certified-operator-catalog/v4.18/ibm-metrics
