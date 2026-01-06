@@ -12,4 +12,4 @@ patches:
         value: 9.0.x
       - op: replace
         path: /spec/startingCSV
-        value: ibm-mas.v9.0.14
+        value: ibm-mas-visualinspection.v9.0.14

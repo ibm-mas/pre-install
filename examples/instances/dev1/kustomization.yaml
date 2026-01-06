@@ -1,0 +1,25 @@
+---
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+resources:
+  - ./aiservice-dev1
+  - ./mas-dev1-arcgis
+  - ./mas-dev1-core
+  - ./mas-dev1-facilities
+  - ./mas-dev1-iot
+  - ./mas-dev1-manage
+  - ./mas-dev1-monitor
+  - ./mas-dev1-optimizer
+  - ./mas-dev1-predict
+  - ./mas-dev1-visualinspection
+patches:
+  # Example to use a specific catalog source for this MAS instance & set the install plan approval mode to "Manual"
+  - target:
+      kind: Subscription
+    patch: |-
+      - op: replace
+        path: /spec/source
+        value: maximo-catalog-dev1
+      - op: replace
+        path: /spec/installPlanApproval
+        value: Manual

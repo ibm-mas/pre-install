@@ -1,0 +1,20 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: optimizer-admin
+  namespace: ""
+rules:
+  - apiGroups:
+      - apps.mas.ibm.com/v1
+    resources:
+      - optimizerapps
+      - optimizerworkspaces
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch

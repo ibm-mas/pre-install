@@ -12,4 +12,4 @@ patches:
         value: 9.1.x
       - op: replace
         path: /spec/startingCSV
-        value: ibm-mas.v9.1.6
+        value: ibm-mas-manage.v9.1.6

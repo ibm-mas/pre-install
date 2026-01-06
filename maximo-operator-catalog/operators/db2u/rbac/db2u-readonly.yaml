@@ -1,0 +1,15 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: db2u-readonly
+  namespace: ""
+rules:
+  - apiGroups:
+      - db2u.databases.ibm.com/v1
+    resources:
+      - db2uclusters
+    verbs:
+      - get
+      - list
+      - watch
