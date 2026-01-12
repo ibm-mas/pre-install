@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../operators/eclipse-amlen
+patches:
+  - target:
+      kind: Subscription
+      name: eclipse-amlen
+    patch: |-
+      - op: replace
+        path: /spec/startingCSV
+        value: eclipse-amlen.v1.1.3
