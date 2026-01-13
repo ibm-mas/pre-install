@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../../operators/ibm-mas-manage
+patches:
+  - target:
+      kind: Subscription
+      name: ibm-mas-manage
+    patch: |-
+      - op: replace
+        path": /spec/channel
+        value: 9.2.x-feature
+      - op: replace
+        path: /spec/startingCSV
+        value: ibm-mas-manage.v9.2.0-pre.stable_6856-amd64
