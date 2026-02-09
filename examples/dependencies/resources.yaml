@@ -99,17 +99,6 @@ spec:
 apiVersion: operators.coreos.com/v1alpha1
 kind: CatalogSource
 metadata:
-  name: certified-operators
-  namespace: openshift-marketplace
-spec:
-  displayName: Certified Operators
-  image: registry.redhat.io/redhat/certified-operator-index:v4.18
-  publisher: Red Hat
-  sourceType: grpc
----
-apiVersion: operators.coreos.com/v1alpha1
-kind: CatalogSource
-metadata:
   name: ibm-operator-catalog
   namespace: openshift-marketplace
 spec:
@@ -168,7 +157,6 @@ spec:
   name: ibm-data-reporter-operator
   source: certified-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: ibm-data-reporter-operator.v2.23.1
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
@@ -181,4 +169,15 @@ spec:
   name: ibm-metrics-operator
   source: certified-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: ibm-metrics-operator.v2.23.1
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: openshift-cert-manager-operator
+  namespace: redhat-marketplace
+spec:
+  channel: stable-v1
+  installPlanApproval: Automatic
+  name: openshift-cert-manager-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace

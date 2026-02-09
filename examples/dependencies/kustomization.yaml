@@ -2,10 +2,10 @@
 kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 resources:
-  - ./certified-operator-catalog
   - ./ibm-operator-catalog
   - ./ibm-data-reporter
   - ./ibm-metrics
+  - ./openshift-cert-manager-operator
   - ./db2u
   - ./ibm-sls
   

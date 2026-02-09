@@ -7,7 +7,6 @@ metadata:
 spec:
   name: ibm-metrics-operator
   channel: stable
-  startingCSV: ""
 
   installPlanApproval: Automatic
 

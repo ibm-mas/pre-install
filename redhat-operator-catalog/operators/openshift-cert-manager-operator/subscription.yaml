@@ -2,13 +2,13 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: ibm-data-reporter-operator
+  name: openshift-cert-manager-operator
   namespace: redhat-marketplace
 spec:
-  name: ibm-data-reporter-operator
-  channel: stable
+  name: openshift-cert-manager-operator
+  channel: stable-v1
 
   installPlanApproval: Automatic
 
-  source: certified-operators
+  source: redhat-operators
   sourceNamespace: openshift-marketplace
