@@ -5,4 +5,5 @@ resources:
   - operatorgroup.yaml
   - subscription.yaml
   - rbac
+  - secret.yaml
   - marketplaceconfig.yaml
