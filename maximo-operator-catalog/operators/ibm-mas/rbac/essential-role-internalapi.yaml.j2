@@ -1,0 +1,24 @@
+---
+# Essential namespace-scoped Role for InternalAPI
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: mas:{{ instanceId }}:core:internalapi:{{ appId }}
+  namespace: mas-{{ instanceId }}-{{ appId }}
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - secrets
+    verbs:
+      - get
+      - create
+      - patch
+      - delete
+
+  - apiGroups:
+      - ""
+    resources:
+      - configmaps
+    verbs:
+      - delete

@@ -1,0 +1,16 @@
+---
+# Essential RoleBinding for InternalAPI
+# Binds the essential Role to the ibm-mas-internalapi ServiceAccount
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: mas:{{ instanceId }}:core:internalapi:{{ appId }}
+  namespace: mas-{{ instanceId }}-{{ appId }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: mas:{{ instanceId }}:core:internalapi:{{ appId }}
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-internalapi
+    namespace: mas-{{ instanceId }}-core
