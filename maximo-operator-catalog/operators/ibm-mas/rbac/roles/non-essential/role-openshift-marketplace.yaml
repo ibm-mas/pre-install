@@ -1,0 +1,36 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: mas:{{ mas_instance_id }}:core:coreapi:openshift-marketplace
+  namespace: openshift-marketplace
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: mas:{{ mas_instance_id }}:core:coreapi:openshift-marketplace
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-coreapi
+    namespace: mas-{{ mas_instance_id }}-core
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: mas:{{ mas_instance_id }}:core:coreapi:openshift-marketplace
+  namespace: openshift-marketplace
+rules:
+  # CoreAPI needs to be able to read PackageManifests to see which versions of MAS are available in the catalog
+  - apiGroups:
+      - packages.operators.coreos.com
+    resources:
+      - packagemanifests
+    verbs:
+      - get
+
+  # CoreAPI needs to be able to retrieve catalogsource information to install an application
+  - apiGroups:
+      - operators.coreos.com
+    resources:
+      - catalogsources
+    verbs:
+      - get
