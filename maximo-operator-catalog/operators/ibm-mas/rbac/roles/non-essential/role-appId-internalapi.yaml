@@ -40,3 +40,25 @@ rules:
       - configmaps
     verbs:
       - delete
+
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+    verbs:
+      - get
+
+  - apiGroups:
+      - operators.coreos.com
+    resources:
+      - subscriptions
+    verbs:
+      - get
+
+  - apiGroups:
+      - apps.mas.ibm.com
+    resources:
+      - {{ mas_app_id }}apps
+      - {{ mas_app_id }}workspaces
+    verbs:
+      - get

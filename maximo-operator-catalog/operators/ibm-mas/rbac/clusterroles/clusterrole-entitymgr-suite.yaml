@@ -17,18 +17,6 @@ kind: ClusterRole
 metadata:
   name: mas:{{ mas_instance_id }}:core:entitymgr-suite
 rules:
-  # Why do we need global access to all secrets in a cluster?
-  # - We don't, this needs to be fixed
-  - apiGroups:
-      - ""
-    resources:
-      - secrets
-    verbs:
-      - get
-      - list
-      - patch
-
-  # ClusterIssuers are cluster-scoped, unavoidable
   - apiGroups:
       - cert-manager.io
     resources:
@@ -41,4 +29,3 @@ rules:
       - update
       - patch
       - delete
-
