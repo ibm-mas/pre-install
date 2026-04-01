@@ -24,6 +24,9 @@ metadata:
   name: mas:{{ mas_instance_id }}:core:coreapi:{{ mas_app_id }}
   namespace: mas-{{ mas_instance_id }}-{{ mas_app_id }}
 rules:
+  # Essential permissions for MAS binding functionality
+  # These are required for CoreAPI to manage binding secrets and configmaps in application namespaces
+  
   - apiGroups:
       - ""
     resources:
@@ -33,6 +36,7 @@ rules:
       - create
       - patch
       - delete
+      - update
 
   - apiGroups:
       - ""
@@ -42,3 +46,5 @@ rules:
       - get
       - create
       - delete
+      - update
+      - patch

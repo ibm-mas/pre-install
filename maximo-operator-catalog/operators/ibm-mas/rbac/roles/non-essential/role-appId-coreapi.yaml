@@ -29,6 +29,7 @@ rules:
     resources:
       - projects
     verbs:
+      - create
       - get
 
   - apiGroups:
@@ -37,25 +38,6 @@ rules:
       - deployments
     verbs:
       - get
-
-  - apiGroups:
-      - ""
-    resources:
-      - secrets
-    verbs:
-      - get
-      - create
-      - patch
-      - delete
-
-  - apiGroups:
-      - ""
-    resources:
-      - configmaps
-    verbs:
-      - get
-      - create
-      - delete
 
   # Ability to install an operator in the namespace
   - apiGroups:
