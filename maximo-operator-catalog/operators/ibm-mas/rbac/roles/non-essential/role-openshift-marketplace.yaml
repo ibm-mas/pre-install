@@ -19,7 +19,8 @@ metadata:
   name: mas:{{ mas_instance_id }}:core:coreapi:openshift-marketplace
   namespace: openshift-marketplace
 rules:
-  # CoreAPI needs to be able to read PackageManifests to see which versions of MAS are available in the catalog
+
+  # Used by coreapi to Get available operator versions and catalog information for applications
   - apiGroups:
       - packages.operators.coreos.com
     resources:
@@ -27,10 +28,12 @@ rules:
     verbs:
       - get
 
-  # CoreAPI needs to be able to retrieve catalogsource information to install an application
+
+  # Used by coreapi to Validate and retrieve CatalogSource information for operator subscriptions during application lifecycle management
   - apiGroups:
       - operators.coreos.com
     resources:
       - catalogsources
     verbs:
       - get
+

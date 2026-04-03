@@ -136,3 +136,19 @@ rules:
       - get
       - create
       - patch
+  
+    # Non-Essential Permissions: Ability to read PackageManifests to see which versions of MAS are available in the catalog
+  - apiGroups:
+      - packages.operators.coreos.com
+    resources:
+      - packagemanifests
+    verbs:
+      - get
+
+  # Non-Essential Permissions: Ability to retrieve catalogsource information to install an application
+  - apiGroups:
+      - operators.coreos.com
+    resources:
+      - catalogsources
+    verbs:
+      - get
