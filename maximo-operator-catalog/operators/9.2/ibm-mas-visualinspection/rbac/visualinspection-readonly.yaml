@@ -1,0 +1,16 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: visualinspection-readonly
+  namespace: ""
+rules:
+  - apiGroups:
+      - apps.mas.ibm.com/v1
+    resources:
+      - visualinspectionapps
+      - visualinspectionworkspaces
+    verbs:
+      - get
+      - list
+      - watch

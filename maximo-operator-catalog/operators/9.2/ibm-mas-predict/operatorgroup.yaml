@@ -1,0 +1,9 @@
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: ibm-mas-predict-operator-group
+  namespace: mas-x-predict
+spec:
+  targetNamespaces:
+    - mas-x-predict

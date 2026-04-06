@@ -1,0 +1,20 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: aiservice-admin
+  namespace: ""
+rules:
+  - apiGroups:
+      - aiservice.ibm.com/v1
+    resources:
+      - aiserviceapps
+      - aiservicetenants
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
