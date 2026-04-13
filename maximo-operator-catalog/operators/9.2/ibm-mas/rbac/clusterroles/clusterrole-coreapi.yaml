@@ -198,3 +198,15 @@ rules:
       - catalogsources
     verbs:
       - get
+
+  # Non-Essential Permissions: Ability to access secrets across namespaces
+  - apiGroups:
+      - ''
+    resources:
+      - secrets
+    verbs:
+      - get
+      - update
+      - create
+      - delete
+      - patch

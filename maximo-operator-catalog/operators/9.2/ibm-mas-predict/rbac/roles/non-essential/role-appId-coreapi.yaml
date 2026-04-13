@@ -62,3 +62,15 @@ rules:
       - get
       - create
       - patch
+  
+  # Ability to access secrets for the MAS application in this namespace
+  - apiGroups:
+      - ''
+    resources:
+      - secrets
+    verbs:
+      - get
+      - update
+      - create
+      - delete
+      - patch
