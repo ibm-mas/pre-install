@@ -1,0 +1,36 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: mas:{{ mas_instance_id }}:core:entitymgr-suite:cross-namespace-scoped-roles:openshift-ingress
+  namespace: openshift-ingress-operator
+rules:
+  - apiGroups:
+      - rbac.authorization.k8s.io
+    resources:
+      - roles
+      - rolebindings
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - update
+      - patch
+      - delete
+      - escalate
+      - bind
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: mas:{{ mas_instance_id }}:core:entitymgr-suite:cross-namespace-scoped-roles:openshift-ingress
+  namespace: openshift-ingress-operator
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: mas:{{ mas_instance_id }}:core:entitymgr-suite:cross-namespace-scoped-roles:openshift-ingress
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-suite
+    namespace: mas-{{ mas_instance_id }}-core
