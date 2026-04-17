@@ -1,9 +1,4 @@
 ---
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: mas-{{ mas_instance_id }}-arcgis
----
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
@@ -26,7 +21,6 @@ metadata:
 rules:
   # Essential permissions for MAS binding functionality
   # These are required for CoreAPI to manage binding secrets and configmaps in application namespaces
-  
   - apiGroups:
       - ""
     resources:
@@ -37,7 +31,6 @@ rules:
       - patch
       - delete
       - update
-
   - apiGroups:
       - ""
     resources:

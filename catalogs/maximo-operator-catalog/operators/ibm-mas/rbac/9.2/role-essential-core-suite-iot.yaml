@@ -1,27 +1,22 @@
 ---
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: mas-{{ mas_instance_id }}-monitor
----
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: mas:{{ mas_instance_id }}:core:suite:monitor
+  name: mas:{{ mas_instance_id }}:core:suite:iot
   namespace: mas-{{ mas_instance_id }}-core
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: mas:{{ mas_instance_id }}:core:suite:monitor
+  name: mas:{{ mas_instance_id }}:core:suite:iot
 subjects:
   - kind: ServiceAccount
-    name: ibm-mas-monitor-entitymgr-primary-entity
-    namespace: mas-{{ mas_instance_id }}-monitor
+    name: ibm-mas-iot-entitymgr-primary-entity
+    namespace: mas-{{ mas_instance_id }}-iot
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: mas:{{ mas_instance_id }}:core:suite:monitor
+  name: mas:{{ mas_instance_id }}:core:suite:iot
   namespace: mas-{{ mas_instance_id }}-core
 rules:
   - apiGroups:

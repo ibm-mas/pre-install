@@ -1,12 +1,11 @@
 ---
 # Non-Essential Namespace-Scoped Role for CoreAPI in cert-manager namespace
 # Allow CoreAPI to read certificate secrets for internal CA certificate generation
-
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: mas:{{ mas_instance_id }}:core:coreapi:cert-manager
-  namespace: cert-manager
+  namespace: cert-manager-operator
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -20,7 +19,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: mas:{{ mas_instance_id }}:core:coreapi:cert-manager
-  namespace: cert-manager
+  namespace: cert-manager-operator
 rules:
   # Used by coreapi to Retrieve {instanceId}-cert-internal-ca secret to generate certificates for internal services
   - apiGroups:

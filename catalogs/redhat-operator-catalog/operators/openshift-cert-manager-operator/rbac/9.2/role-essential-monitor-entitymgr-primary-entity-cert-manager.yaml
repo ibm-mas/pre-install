@@ -1,13 +1,8 @@
 ---
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: mas-{{ mas_instance_id }}-predict
----
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: mas:{{ mas_instance_id }}:predict:entitymgr-primary-entity:cert-manager
+  name: mas:{{ mas_instance_id }}:monitor:entitymgr-primary-entity:cert-manager
   namespace: cert-manager
 rules:
   - apiGroups:
@@ -26,13 +21,13 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: mas:{{ mas_instance_id }}:predict:entitymgr-primary-entity:cert-manager
+  name: mas:{{ mas_instance_id }}:monitor:entitymgr-primary-entity:cert-manager
   namespace: cert-manager
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: mas:{{ mas_instance_id }}:predict:entitymgr-primary-entity:cert-manager
+  name: mas:{{ mas_instance_id }}:monitor:entitymgr-primary-entity:cert-manager
 subjects:
   - kind: ServiceAccount
-    name: ibm-mas-predict-entitymgr-primary-entity
-    namespace: mas-{{ mas_instance_id }}-predict
+    name: ibm-mas-monitor-entitymgr-primary-entity
+    namespace: mas-{{ mas_instance_id }}-monitor
