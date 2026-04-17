@@ -1,9 +1,0 @@
----
-apiVersion: operators.coreos.com/v1
-kind: OperatorGroup
-metadata:
-  name: ibm-mas-facilities-operator-group
-  namespace: mas-x-facilities
-spec:
-  targetNamespaces:
-    - mas-x-facilities

@@ -1,9 +1,0 @@
----
-apiVersion: operators.coreos.com/v1
-kind: OperatorGroup
-metadata:
-  name: ibm-mas-monitor-operator-group
-  namespace: mas-x-monitor
-spec:
-  targetNamespaces:
-    - mas-x-monitor
