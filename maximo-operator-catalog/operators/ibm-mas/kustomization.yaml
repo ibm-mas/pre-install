@@ -4,5 +4,5 @@ resources:
   - namespace.yaml
   - operatorgroup.yaml
   - subscription.yaml
-  - roles
+  - rbac
 
