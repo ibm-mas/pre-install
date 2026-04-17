@@ -1,9 +1,0 @@
----
-apiVersion: operators.coreos.com/v1
-kind: OperatorGroup
-metadata:
-  name: ibm-mas-iot-operator-group
-  namespace: mas-x-iot
-spec:
-  targetNamespaces:
-    - mas-x-iot
