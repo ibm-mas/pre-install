@@ -5,7 +5,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: mas:{{ mas_instance_id }}:core:coreapi:cert-manager
-  namespace: cert-manager-operator
+  namespace: cert-manager
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -19,7 +19,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: mas:{{ mas_instance_id }}:core:coreapi:cert-manager
-  namespace: cert-manager-operator
+  namespace: cert-manager
 rules:
   # Used by coreapi to Retrieve {instanceId}-cert-internal-ca secret to generate certificates for internal services
   - apiGroups:
