@@ -54,14 +54,17 @@ rules:
       - get
       - create
       - patch
-  # Ability to access secrets for the MAS application in this namespace
+  # Application lifecycle management: Secrets and ConfigMaps
+  # Required for managing application configurations, workspace secrets, TLS certificates, and app-specific configs
   - apiGroups:
       - ''
     resources:
       - secrets
+      - configmaps
     verbs:
       - get
-      - update
+      - list
       - create
-      - delete
+      - update
       - patch
+      - delete

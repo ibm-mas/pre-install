@@ -120,11 +120,12 @@ rules:
     verbs:
       - get
 
-  # Non-Essential Permissions: Ability to access secrets across namespaces
+  # Non-Essential Permissions: Ability to access secrets and configmaps across namespaces
   - apiGroups:
       - ''
     resources:
       - secrets
+      - configmaps
     verbs:
       - get
       - update
