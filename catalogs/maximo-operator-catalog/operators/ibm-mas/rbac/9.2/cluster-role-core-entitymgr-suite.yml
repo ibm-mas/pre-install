@@ -1,18 +1,5 @@
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: mas:{{ mas_instance_id }}:core:entitymgr-suite
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: mas:{{ mas_instance_id }}:core:entitymgr-suite
-subjects:
-  - kind: ServiceAccount
-    name: ibm-mas-entitymgr-suite
-    namespace: mas-{{ mas_instance_id }}-core
----
-apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: mas:{{ mas_instance_id }}:core:entitymgr-suite
@@ -29,3 +16,16 @@ rules:
       - update
       - patch
       - delete
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: mas:{{ mas_instance_id }}:core:entitymgr-suite
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: mas:{{ mas_instance_id }}:core:entitymgr-suite
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-entitymgr-suite
+    namespace: mas-{{ mas_instance_id }}-core

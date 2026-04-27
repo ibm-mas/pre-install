@@ -1,19 +1,5 @@
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: mas:{{ mas_instance_id }}:core:internalapi:predict
-  namespace: mas-{{ mas_instance_id }}-predict
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: mas:{{ mas_instance_id }}:core:internalapi:predict
-subjects:
-  - kind: ServiceAccount
-    name: ibm-mas-internalapi
-    namespace: mas-{{ mas_instance_id }}-core
----
-apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: mas:{{ mas_instance_id }}:core:internalapi:predict
@@ -38,3 +24,17 @@ rules:
       - predictworkspaces
     verbs:
       - get
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: mas:{{ mas_instance_id }}:core:internalapi:predict
+  namespace: mas-{{ mas_instance_id }}-predict
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: mas:{{ mas_instance_id }}:core:internalapi:predict
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-internalapi
+    namespace: mas-{{ mas_instance_id }}-core
