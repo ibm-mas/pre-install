@@ -6,7 +6,7 @@ metadata:
   namespace: mas-{{ mas_instance_id }}-core
 rules:
   - apiGroups:
-      - apps.mas.ibm.com
+      - core.mas.ibm.com
     resources:
       - suites
     verbs:
