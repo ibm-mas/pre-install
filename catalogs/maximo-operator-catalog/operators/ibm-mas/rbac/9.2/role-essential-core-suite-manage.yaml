@@ -8,7 +8,7 @@ rules:
   - apiGroups:
       - apps.mas.ibm.com
     resources:
-      - Suite
+      - suites
     verbs:
       - get
   - apiGroups:
