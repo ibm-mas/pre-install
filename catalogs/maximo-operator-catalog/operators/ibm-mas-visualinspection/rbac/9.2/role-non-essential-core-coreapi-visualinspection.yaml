@@ -5,19 +5,21 @@ metadata:
   name: mas:{{ mas_instance_id }}:core:coreapi:visualinspection
   namespace: mas-{{ mas_instance_id }}-visualinspection
 rules:
+
   - apiGroups:
       - project.openshift.io
     resources:
       - projects
     verbs:
-      - create
       - get
+
   - apiGroups:
       - apps
     resources:
       - deployments
     verbs:
       - get
+
   # Ability to install an operator in the namespace
   - apiGroups:
       - operators.coreos.com
@@ -30,30 +32,17 @@ rules:
       - list
       - create
       - patch
+
   # Ability to get, create, and modify the MAS application in this namespace
   - apiGroups:
       - apps.mas.ibm.com
     resources:
       - visualinspectionapps
-      - visualinspectionworkspaces
     verbs:
       - get
       - create
       - patch
-  # Ability to access secrets and configmaps for the MAS application in this namespace
-  # Used for application lifecycle management (deploying apps, creating workspaces, managing configurations)
-  - apiGroups:
-      - ''
-    resources:
-      - secrets
-      - configmaps
-    verbs:
-      - get
-      - list
-      - create
-      - update
-      - patch
-      - delete
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding

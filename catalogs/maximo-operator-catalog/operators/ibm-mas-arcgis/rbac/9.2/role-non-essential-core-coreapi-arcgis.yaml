@@ -5,19 +5,21 @@ metadata:
   name: mas:{{ mas_instance_id }}:core:coreapi:arcgis
   namespace: mas-{{ mas_instance_id }}-arcgis
 rules:
+
   - apiGroups:
       - project.openshift.io
     resources:
       - projects
     verbs:
-      - create
       - get
+
   - apiGroups:
       - apps
     resources:
       - deployments
     verbs:
       - get
+
   # Ability to install an operator in the namespace
   - apiGroups:
       - operators.coreos.com
@@ -30,28 +32,7 @@ rules:
       - list
       - create
       - patch
-  # Ability to get, create, and modify the MAS application in this namespace
-  - apiGroups:
-      - apps.mas.ibm.com
-    resources:
-      - arcgisapps
-      - arcgisworkspaces
-    verbs:
-      - get
-      - create
-      - patch
-  # Ability to access secrets for the MAS application in this namespace
-  - apiGroups:
-      - ''
-    resources:
-      - secrets
-      - configmaps
-    verbs:
-      - get
-      - update
-      - create
-      - delete
-      - patch
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding

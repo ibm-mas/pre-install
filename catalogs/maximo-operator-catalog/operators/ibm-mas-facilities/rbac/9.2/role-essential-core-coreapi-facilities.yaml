@@ -5,28 +5,32 @@ metadata:
   name: mas:{{ mas_instance_id }}:core:coreapi:facilities
   namespace: mas-{{ mas_instance_id }}-facilities
 rules:
+
   # Essential permissions for MAS binding functionality
   # These are required for CoreAPI to manage binding secrets and configmaps in application namespaces
   - apiGroups:
       - ""
     resources:
+      - configmaps
       - secrets
     verbs:
       - get
-      - create
-      - patch
-      - delete
       - update
+      - create
+      - delete
+      - patch
+
+  # Ability to get, create, and modify the MAS application in this namespace
   - apiGroups:
-      - ""
+      - apps.mas.ibm.com
     resources:
-      - configmaps
+      - facilitiesworkspaces
     verbs:
       - get
       - create
-      - delete
-      - update
       - patch
+      - update
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding

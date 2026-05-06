@@ -5,28 +5,21 @@ metadata:
   name: mas:{{ mas_instance_id }}:core:coreapi:aiservice
   namespace: mas-{{ mas_instance_id }}-aiservice
 rules:
+
   # Essential permissions for MAS binding functionality
   # These are required for CoreAPI to manage binding secrets and configmaps in application namespaces
   - apiGroups:
       - ""
     resources:
+      - configmaps
       - secrets
     verbs:
       - get
-      - create
-      - patch
-      - delete
       - update
-  - apiGroups:
-      - ""
-    resources:
-      - configmaps
-    verbs:
-      - get
       - create
       - delete
-      - update
       - patch
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
