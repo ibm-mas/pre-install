@@ -38,6 +38,7 @@ rules:
       - apps.mas.ibm.com
     resources:
       - iotapps
+      - iotworkspaces
     verbs:
       - get
       - create

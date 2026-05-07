@@ -38,6 +38,7 @@ rules:
       - apps.mas.ibm.com
     resources:
       - monitorapps
+      - monitorworkspaces
     verbs:
       - get
       - create

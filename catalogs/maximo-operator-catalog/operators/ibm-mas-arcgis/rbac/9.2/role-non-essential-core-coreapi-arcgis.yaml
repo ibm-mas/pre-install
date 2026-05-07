@@ -33,6 +33,16 @@ rules:
       - create
       - patch
 
+  # Ability to get, create, and modify the MAS application in this namespace
+  - apiGroups:
+      - apps.mas.ibm.com
+    resources:
+      - arcgisapps
+      - arcgisworkspaces
+    verbs:
+      - get
+      - create
+      - patch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding

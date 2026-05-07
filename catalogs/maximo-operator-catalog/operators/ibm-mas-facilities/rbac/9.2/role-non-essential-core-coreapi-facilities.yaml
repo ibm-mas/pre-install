@@ -38,6 +38,7 @@ rules:
       - apps.mas.ibm.com
     resources:
       - facilitiesapps
+      - facilitiesworkspaces
     verbs:
       - get
       - create

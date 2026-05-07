@@ -39,6 +39,7 @@ rules:
       - apps.mas.ibm.com
     resources:
       - optimizerapps
+      - optimizerworkspaces
     verbs:
       - get
       - create

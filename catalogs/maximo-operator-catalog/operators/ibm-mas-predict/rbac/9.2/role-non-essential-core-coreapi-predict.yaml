@@ -38,6 +38,7 @@ rules:
       - apps.mas.ibm.com
     resources:
       - predictapps
+      - predictworkspaces
     verbs:
       - get
       - create

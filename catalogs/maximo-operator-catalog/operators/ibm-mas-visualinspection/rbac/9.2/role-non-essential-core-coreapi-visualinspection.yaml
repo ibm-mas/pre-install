@@ -38,6 +38,7 @@ rules:
       - apps.mas.ibm.com
     resources:
       - visualinspectionapps
+      - visualinspectionworkspaces
     verbs:
       - get
       - create
