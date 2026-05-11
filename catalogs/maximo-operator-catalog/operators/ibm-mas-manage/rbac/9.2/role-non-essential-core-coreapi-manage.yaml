@@ -1,0 +1,72 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: mas:{{ mas_instance_id }}:core:coreapi:manage
+  namespace: mas-{{ mas_instance_id }}-manage
+rules:
+
+  - apiGroups:
+      - project.openshift.io
+    resources:
+      - projects
+    verbs:
+      - get
+
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+    verbs:
+      - get
+
+  # Ability to install an operator in the namespace
+  - apiGroups:
+      - operators.coreos.com
+    resources:
+      - installplans
+      - operatorgroups
+      - subscriptions
+    verbs:
+      - get
+      - list
+      - create
+      - patch
+
+  # Ability to get, create, and modify the MAS application in this namespace
+  - apiGroups:
+      - apps.mas.ibm.com
+    resources:
+      - manageapps
+      - manageworkspaces
+    verbs:
+      - get
+      - create
+      - patch
+
+  # TODO: verify if this is needed in non-essential or should be part of essential
+  # Accelerators CR 
+  - apiGroups:
+      - apps.mas.ibm.com
+    resources:
+      - manageaccelerators
+    verbs:
+      - get
+      - list
+      - patch
+      - update
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: mas:{{ mas_instance_id }}:core:coreapi:manage
+  namespace: mas-{{ mas_instance_id }}-manage
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: mas:{{ mas_instance_id }}:core:coreapi:manage
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-coreapi
+    namespace: mas-{{ mas_instance_id }}-core

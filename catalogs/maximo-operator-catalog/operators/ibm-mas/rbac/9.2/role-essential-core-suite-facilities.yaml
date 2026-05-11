@@ -1,0 +1,33 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: mas:{{ mas_instance_id }}:core:suite:facilities
+  namespace: mas-{{ mas_instance_id }}-core
+rules:
+  - apiGroups:
+      - core.mas.ibm.com
+    resources:
+      - suites
+    verbs:
+      - get
+  - apiGroups:
+      - ""
+    resources:
+      - secrets
+    verbs:
+      - get
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: mas:{{ mas_instance_id }}:core:suite:facilities
+  namespace: mas-{{ mas_instance_id }}-core
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: mas:{{ mas_instance_id }}:core:suite:facilities
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-facilities-entitymgr-primary-entity
+    namespace: mas-{{ mas_instance_id }}-facilities

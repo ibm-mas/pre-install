@@ -3,9 +3,9 @@ kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 namespace: mas-dev1-iot
 resources:
-  - ../../../../maximo-operator-catalog/v9-251127-amd64/ibm-mas-iot/9.1
-  - ../../../../maximo-operator-catalog/v9-251127-amd64/eclipse-amlen
-  - ../../../../maximo-operator-catalog/v9-251127-amd64/ibm-truststore-mgr
+  - ../../../../catalogs/maximo-operator-catalog/v9-251127-amd64/ibm-mas-iot/9.1
+  - ../../../../catalogs/maximo-operator-catalog/v9-251127-amd64/eclipse-amlen
+  - ../../../../catalogs/maximo-operator-catalog/v9-251127-amd64/ibm-truststore-mgr
 patches:
   - target:
       kind: OperatorGroup

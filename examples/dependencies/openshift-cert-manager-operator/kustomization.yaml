@@ -3,4 +3,4 @@ kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 namespace: redhat-marketplace
 resources:
-  - ../../../redhat-operator-catalog/operators/openshift-cert-manager-operator
+  - ../../../catalogs/redhat-operator-catalog/operators/openshift-cert-manager-operator
