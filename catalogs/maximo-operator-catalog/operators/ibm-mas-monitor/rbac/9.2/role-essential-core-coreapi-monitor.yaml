@@ -20,6 +20,15 @@ rules:
       - delete
       - patch
 
+  # Ability to get Monitor CRs for configuration retrieval
+  - apiGroups:
+      - apps.mas.ibm.com
+    resources:
+      - monitorapps
+      - monitorworkspaces
+    verbs:
+      - get
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding

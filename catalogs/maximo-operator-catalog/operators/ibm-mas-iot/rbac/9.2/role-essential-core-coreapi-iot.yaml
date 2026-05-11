@@ -20,6 +20,14 @@ rules:
       - delete
       - patch
 
+  # Ability to get IoT CRs for configuration retrieval
+  - apiGroups:
+      - apps.mas.ibm.com
+    resources:
+      - iotapps
+      - iotworkspaces
+    verbs:
+      - get
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1

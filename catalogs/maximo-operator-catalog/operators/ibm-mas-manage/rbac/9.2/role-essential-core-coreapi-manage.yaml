@@ -20,6 +20,14 @@ rules:
       - delete
       - patch
 
+  # Ability to get Manage CRs for configuration retrieval
+  - apiGroups:
+      - apps.mas.ibm.com
+    resources:
+      - manageapps
+      - manageworkspaces
+    verbs:
+      - get
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1

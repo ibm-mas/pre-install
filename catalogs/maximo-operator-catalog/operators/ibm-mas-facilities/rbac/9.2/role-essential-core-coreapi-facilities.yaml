@@ -20,6 +20,14 @@ rules:
       - delete
       - patch
 
+  # Ability to get Facilities CRs for configuration retrieval
+  - apiGroups:
+      - apps.mas.ibm.com
+    resources:
+      - facilitiesapps
+      - facilitiesworkspaces
+    verbs:
+      - get
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1

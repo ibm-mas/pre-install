@@ -19,6 +19,16 @@ rules:
       - create
       - delete
       - patch
+
+  # Ability to get Arcgis CRs for configuration retrieval
+  - apiGroups:
+      - apps.mas.ibm.com
+    resources:
+      - arcgisapps
+      - arcgisworkspaces
+    verbs:
+      - get
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
