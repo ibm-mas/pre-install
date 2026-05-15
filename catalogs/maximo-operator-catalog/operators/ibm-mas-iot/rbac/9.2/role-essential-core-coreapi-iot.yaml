@@ -22,9 +22,9 @@ rules:
 
   # Ability to get IoT CRs for configuration retrieval
   - apiGroups:
-      - apps.mas.ibm.com
+      - iot.ibm.com
     resources:
-      - iotapps
+      - iots
       - iotworkspaces
     verbs:
       - get

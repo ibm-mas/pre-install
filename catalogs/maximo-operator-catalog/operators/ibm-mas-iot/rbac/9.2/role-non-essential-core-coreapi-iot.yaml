@@ -35,9 +35,9 @@ rules:
 
   # Ability to get, create, and modify the MAS application in this namespace
   - apiGroups:
-      - apps.mas.ibm.com
+      - iot.ibm.com
     resources:
-      - iotapps
+      - iots
       - iotworkspaces
     verbs:
       - get
