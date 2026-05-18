@@ -1,0 +1,76 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: mas:{{ mas_instance_id }}:core:internalapi
+rules:
+
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+    verbs:
+      - get
+
+  - apiGroups:
+      - operators.coreos.com
+    resources:
+      - subscriptions
+    verbs:
+      - get
+
+  - apiGroups:
+      - apps.mas.ibm.com
+    resources:
+      - manageapps
+      - manageworkspaces
+      - manageworkspaces/status
+      - manageworkspaces/finalizers
+      - optimizerapps
+      - optimizerworkspaces
+      - predictapps
+      - predictworkspaces
+      - facilitiesapps
+      - facilitiesworkspaces
+      - healthapps
+      - healthworkspaces
+      - monitorapps
+      - monitorworkspaces
+      - visualinspectionapps
+      - visualinspectionappworkspaces
+      - assistapps
+      - assistworkspaces
+      - predictapps
+      - predictworkspaces
+    verbs:
+      - get
+
+  - apiGroups:
+      - iot.ibm.com
+    resources:
+      - iotworkspaces
+      - iots
+    verbs:
+      - get
+
+  - apiGroups:
+      - asset-data-dictionary.ibm.com
+    resources:
+      - assetdatadictionaries
+      - datadictionaryworkspaces
+    verbs:
+      - get
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: mas:{{ mas_instance_id }}:core:internalapi
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: mas:{{ mas_instance_id }}:core:internalapi
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-internalapi
+    namespace: mas-{{ mas_instance_id }}-core
