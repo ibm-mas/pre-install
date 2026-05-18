@@ -18,13 +18,6 @@ rules:
       - subscriptions
     verbs:
       - get
-  - apiGroups:
-      - apps.mas.ibm.com
-    resources:
-      - manageapps
-      - manageworkspaces
-    verbs:
-      - get
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding

@@ -107,18 +107,6 @@ rules:
     verbs:
       - get
 
-  # Non-Essential Permissions: Ability to access secrets and configmaps across namespaces
-  - apiGroups:
-      - ''
-    resources:
-      - secrets
-      - configmaps
-    verbs:
-      - get
-      - update
-      - create
-      - delete
-      - patch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
