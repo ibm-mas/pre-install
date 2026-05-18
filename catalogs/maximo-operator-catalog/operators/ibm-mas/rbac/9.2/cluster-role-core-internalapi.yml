@@ -19,39 +19,6 @@ rules:
     verbs:
       - get
 
-  - apiGroups:
-      - apps.mas.ibm.com
-    resources:
-      - manageapps
-      - manageworkspaces
-      - manageworkspaces/status
-      - manageworkspaces/finalizers
-      - optimizerapps
-      - optimizerworkspaces
-      - predictapps
-      - predictworkspaces
-      - facilitiesapps
-      - facilitiesworkspaces
-      - healthapps
-      - healthworkspaces
-      - monitorapps
-      - monitorworkspaces
-      - visualinspectionapps
-      - visualinspectionappworkspaces
-      - assistapps
-      - assistworkspaces
-      - predictapps
-      - predictworkspaces
-    verbs:
-      - get
-
-  - apiGroups:
-      - iot.ibm.com
-    resources:
-      - iotworkspaces
-      - iots
-    verbs:
-      - get
 
   - apiGroups:
       - asset-data-dictionary.ibm.com
