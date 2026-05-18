@@ -17,13 +17,6 @@ rules:
       - subscriptions
     verbs:
       - get
-  - apiGroups:
-      - apps.mas.ibm.com
-    resources:
-      - aiserviceapps
-      - aiserviceworkspaces
-    verbs:
-      - get
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding

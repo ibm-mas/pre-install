@@ -20,14 +20,6 @@ rules:
       - get
 
 
-  - apiGroups:
-      - asset-data-dictionary.ibm.com
-    resources:
-      - assetdatadictionaries
-      - datadictionaryworkspaces
-    verbs:
-      - get
-
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
