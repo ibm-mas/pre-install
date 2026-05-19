@@ -65,9 +65,6 @@ rules:
       # Monitor
       - monitorapps
       - monitorworkspaces
-      # MSO
-      - msoapps
-      - msoworkspaces
       # Optimizer
       - optimizerapps
       - optimizerworkspaces
