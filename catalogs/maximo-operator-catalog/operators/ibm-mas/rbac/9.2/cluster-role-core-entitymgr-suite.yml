@@ -8,6 +8,7 @@ rules:
       - cert-manager.io
     resources:
       - clusterissuers
+      - issuers
       - certificates
     verbs:
       - get
