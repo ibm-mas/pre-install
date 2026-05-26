@@ -4,6 +4,19 @@ kind: ClusterRole
 metadata:
   name: mas:{{ mas_instance_id }}:core:coreapi
 rules:
+  # Essential Permissions: Ability to manage configmap/Secrets
+  - apiGroups:
+      - ""
+    resources:
+      - configmaps
+      - secrets
+    verbs:
+      - get
+      - update
+      - create
+      - delete
+      - patch
+
   # Non-Essential Permissions: Ability to manage projects
   - apiGroups:
       - project.openshift.io
