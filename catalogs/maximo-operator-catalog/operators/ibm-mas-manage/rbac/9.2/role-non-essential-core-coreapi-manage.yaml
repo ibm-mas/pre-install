@@ -43,6 +43,7 @@ rules:
       - get
       - create
       - patch
+      - delete
 
   # TODO: verify if this is needed in non-essential or should be part of essential
   # Accelerators CR 
@@ -55,7 +56,7 @@ rules:
       - list
       - patch
       - update
-
+      - delete
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
