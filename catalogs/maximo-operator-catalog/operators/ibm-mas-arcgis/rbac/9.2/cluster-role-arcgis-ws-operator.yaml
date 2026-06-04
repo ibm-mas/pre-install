@@ -1,0 +1,64 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: mas:{{ mas_instance_id }}:arcgis:ws-operator
+rules:
+  # Ability to manage SecurityContextConstraints
+  - apiGroups:
+      - security.openshift.io
+    resources:
+      - securitycontextconstraints
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - delete
+      - patch
+      - update
+  
+  # Ability to get cluster version information
+  - apiGroups:
+      - config.openshift.io
+    resources:
+      - clusterversions
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - delete
+      - patch
+      - update
+  
+  # Ability to manage NetworkPolicies cluster-wide
+  - apiGroups:
+      - networking.k8s.io
+    resources:
+      - networkpolicies
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - delete
+      - deletecollection
+      - patch
+      - update
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: mas:{{ mas_instance_id }}:arcgis:ws-operator
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: mas:{{ mas_instance_id }}:arcgis:ws-operator
+subjects:
+  - kind: ServiceAccount
+    name: ibm-mas-arcgis-ws-operator
+    namespace: mas-{{ mas_instance_id }}-arcgis
+
+# Made with Bob

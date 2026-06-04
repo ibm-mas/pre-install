@@ -1,0 +1,44 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: mas:{{ mas_instance_id }}:arcgis:ingress-controller
+rules:
+  # Ability to manage events and get node information
+  - apiGroups:
+      - ""
+    resources:
+      - events
+      - nodes
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - patch
+  
+  # Ability to get IngressClasses
+  - apiGroups:
+      - networking.k8s.io
+    resources:
+      - ingressclasses
+    verbs:
+      - get
+      - list
+      - watch
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: mas:{{ mas_instance_id }}:arcgis:ingress-controller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: mas:{{ mas_instance_id }}:arcgis:ingress-controller
+subjects:
+  - kind: ServiceAccount
+    name: arcgis-ingress-serviceaccount
+    namespace: mas-{{ mas_instance_id }}-arcgis
+
+# Made with Bob
