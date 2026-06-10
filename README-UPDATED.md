@@ -77,6 +77,8 @@ kustomize build catalogs/maximo-operator-catalog/operators/ibm-mas-manage/rbac/9
 
 **Note**: RBAC files use template variables (e.g., `{{ mas_instance_id }}`) that must be replaced with actual values before applying.
 
+ **💡 Note**: If you don't want to manually apply RBAC configurations for each operator/application using kustomize, you can use the **MAS CLI pre-install command** to apply RBACs for all applications at once. For more information about this command, refer to the [Pre install documentation](github.com/ibm-mas/cli/blob/master/docs/commands/pre-install.md).
+
 ## Maintenance
 
 The content in [`catalogs/maximo-operator-catalog/operators`](catalogs/maximo-operator-catalog/operators/) contains base resource definitions (namespace, operatorgroup, subscription, RBAC) that remain largely static. RBAC configurations are versioned to support different MAS releases and will be updated as new minor versions are released.
