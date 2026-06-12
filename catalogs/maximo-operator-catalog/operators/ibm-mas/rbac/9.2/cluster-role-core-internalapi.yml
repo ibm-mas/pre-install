@@ -18,6 +18,7 @@ rules:
       - subscriptions
     verbs:
       - get
+      - list
 
 
 ---
